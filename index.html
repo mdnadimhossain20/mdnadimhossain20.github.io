@@ -1,46 +1,257 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Academic Portfolio</title>
+  <meta name="theme-color" content="#102b43">
+  <meta name="description" content="Academic portfolio of a prospective PhD applicant in Materials Science and Engineering. Research interests, education, publications and projects.">
+  <title>Md. Nadim Hossain | Academic & Research Portfolio</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f7fb;
-      color: #222;
-      text-align: center;
+    :root {
+      --navy: #102b43;
+      --navy-deep: #0b2134;
+      --blue: #235b80;
+      --teal: #087c87;
+      --gold: #d2aa62;
+      --ink: #223347;
+      --muted: #5f7183;
+      --surface: #ffffff;
+      --wash: #f4f7f8;
+      --border: #e2e9ed;
+      --radius: 18px;
+      --shadow: 0 12px 38px rgba(14, 39, 59, .07);
     }
-    header {
-      background: #17365d;
-      color: white;
-      padding: 60px 20px;
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { margin: 0; background: var(--wash); color: var(--ink); font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .skip { position: absolute; top: -80px; left: 16px; background: white; padding: 8px 16px; z-index: 20; }
+    .skip:focus { top: 8px; }
+    .topbar { background: var(--navy-deep); border-bottom: 1px solid rgba(255,255,255,.1); color: white; }
+    .topbar .inner { max-width: 1190px; margin: auto; padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: white; font-weight: 730; letter-spacing: .015em; }
+    .brand:hover { color: white; text-decoration: none; }
+    .brand-icon { background: linear-gradient(145deg, #c5a162, #eed6a0); color: #102b43; height: 35px; width: 35px; display: grid; place-items: center; border-radius: 9px; font: 700 14px/1 Georgia, serif; }
+    .toplinks { display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+    .toplinks a { color: #dbe9f0; font-size: 13px; font-weight: 600; }
+    .toplinks a:hover { color: white; }
+    .layout { max-width: 1190px; padding: 36px 28px 80px; margin: auto; display: grid; grid-template-columns: 296px minmax(0,1fr); align-items: start; gap: 26px; }
+    .profile { position: sticky; top: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .profile-top { background: linear-gradient(145deg, #173c58 0%, #0b2539 90%); padding: 32px 26px 28px; text-align: center; color: white; }
+    .avatar { display: grid; place-items: center; width: 116px; height: 116px; margin: 0 auto 19px; border: 4px solid rgba(255,255,255,.75); border-radius: 50%; background: #dce8ef; color: var(--navy); font: 700 39px Georgia, serif; box-shadow: 0 8px 22px rgba(0,0,0,.18); }
+    .profile h1 { font: 700 25px/1.2 Georgia, "Times New Roman", serif; margin: 0 0 9px; letter-spacing: -.02em; }
+    .profile .role { color: #e4edf3; font-size: 13px; line-height: 1.55; margin: 0; }
+    .profile .details { padding: 23px 25px 25px; }
+    .label { color: #758394; font-size: 11px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
+    .detail { border-bottom: 1px solid var(--border); padding: 12px 0; }
+    .detail:last-of-type { border-bottom: 0; }
+    .detail strong, .detail span { display: block; }
+    .detail strong { margin-top: 2px; font-size: 14px; font-weight: 600; }
+    .profile .pill { margin-top: 19px; display: flex; justify-content: center; gap: 8px; align-items: center; padding: 10px 12px; border-radius: 9px; background: #eaf6f3; color: #076a63; font-size: 12px; font-weight: 700; }
+    .dot { display: block; border-radius: 50%; background: #10a78c; width: 7px; height: 7px; flex: none; }
+    .main { min-width: 0; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; background: linear-gradient(117deg, #12364f 0%, #174b60 69%, #216e76 100%); color: white; padding: 47px 43px 43px; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .hero:after { content: ''; width: 270px; height: 270px; position: absolute; z-index: -1; right: -95px; top: -105px; border: 45px solid rgba(255,255,255,.065); border-radius: 50%; }
+    .eyebrow { color: #e5c990; letter-spacing: .16em; text-transform: uppercase; font-size: 11px; font-weight: 800; }
+    .hero h2 { margin: 16px 0 18px; max-width: 680px; font: 700 clamp(29px, 4vw, 42px)/1.15 Georgia, "Times New Roman", serif; letter-spacing: -.025em; }
+    .hero p { color: #e0eaf0; max-width: 640px; margin: 0; font-size: 15px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 27px; }
+    .btn { display: inline-block; border-radius: 8px; padding: 10px 17px; font-size: 13px; font-weight: 750; border: 1px solid rgba(255,255,255,.42); transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn-primary { color: var(--navy-deep); background: #efd6a1; border-color: #efd6a1; }
+    .btn-primary:hover { background: #f7e2b8; }
+    .btn-outline { color: white; background: transparent; }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+    .block { margin-top: 23px; padding: 30px 34px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .block h2 { margin: 0 0 17px; font: 700 25px/1.25 Georgia, "Times New Roman", serif; color: var(--navy); display: flex; align-items: center; gap: 12px; }
+    .block h2:before { content: ''; width: 4px; height: 22px; border-radius: 2px; background: var(--teal); flex: none; }
+    .block p { margin: 0 0 13px; color: #526476; }
+    .block p:last-child { margin-bottom: 0; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 9px; }
+    .tag { border: 1px solid #d5e6e9; background: #f0f8f8; border-radius: 100px; padding: 6px 12px; color: #125864; font-size: 13px; font-weight: 600; }
+    .entry { border-left: 2px solid #d8e7e9; padding: 2px 0 20px 19px; margin-left: 5px; position: relative; }
+    .entry:last-child { padding-bottom: 0; }
+    .entry:before { content: ''; position: absolute; width: 9px; height: 9px; left: -6px; top: 8px; border-radius: 50%; background: var(--teal); border: 2px solid white; }
+    .entry .date { color: var(--teal); font-weight: 800; font-size: 12px; letter-spacing: .04em; }
+    .entry h3 { font-size: 16px; line-height: 1.4; color: #1c364b; margin: 5px 0; }
+    .entry p { font-size: 14px; margin: 3px 0 0; }
+    .publication { padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .publication:first-of-type { padding-top: 0; }
+    .publication:last-child { border-bottom: 0; padding-bottom: 0; }
+    .publication h3 { font-size: 16px; font-weight: 700; margin: 0 0 5px; color: var(--navy); line-height: 1.5; }
+    .publication .meta { font-size: 13px; color: #677c8d; }
+    .notice { border: 1px dashed #bcced7; border-radius: 11px; background: #f9fbfc; padding: 17px 20px; color: var(--muted); font-size: 14px; }
+    .projects { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .project { border: 1px solid var(--border); background: #fbfdfd; border-radius: 12px; padding: 19px; }
+    .project h3 { margin: 0 0 7px; font-size: 16px; color: #173b53; }
+    .project p { font-size: 14px; line-height: 1.6; }
+    .contact { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .contact a { display: inline-block; padding: 8px 12px; font-size: 13px; background: #eef4f7; border-radius: 7px; font-weight: 650; }
+    .footer { max-width: 1190px; margin: -35px auto 30px; padding: 0 28px; color: var(--muted); font-size: 12px; text-align: right; }
+    @media (max-width: 860px) {
+      .topbar .inner { flex-wrap: wrap; }
+      .toplinks { gap: 12px 17px; }
+      .layout { grid-template-columns: 1fr; padding-top: 22px; }
+      .profile { position: static; }
+      .profile-top { padding: 26px; }
+      .avatar { width: 90px; height: 90px; font-size: 30px; }
+      .profile .details { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 20px; }
+      .profile .pill { grid-column: 1/-1; }
     }
-    section {
-      padding: 30px 20px;
+    @media (max-width: 540px) {
+      .topbar .inner { padding: 14px 18px; }
+      .toplinks a { font-size: 12px; }
+      .layout { padding: 17px 14px 65px; gap: 14px; }
+      .hero { padding: 31px 23px; }
+      .block { padding: 24px 20px; margin-top: 14px; }
+      .block h2 { font-size: 22px; }
+      .projects { grid-template-columns: 1fr; }
+      .profile .details { display: block; }
+      .footer { padding: 0 14px; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+    @media print {
+      body { background: white; }
+      .topbar, .actions, .footer { display: none; }
+      .layout { display: block; max-width: 100%; padding: 0; }
+      .profile { position: static; box-shadow: none; margin-bottom: 15px; }
+      .block, .hero { box-shadow: none; break-inside: avoid; margin: 10px 0; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Academic Portfolio</h1>
-    <p>Research | Publications | Projects</p>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <div class="inner">
+      <a class="brand" href="#top"><span class="brand-icon">AP</span>Academic Portfolio</a>
+      <nav class="toplinks" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>Welcome to my personal research website.</p>
+  <div class="layout" id="top">
+    <aside class="profile" aria-label="Academic profile">
+      <div class="profile-top">
+        <!-- Replace this initials avatar with your portrait later, if you wish. -->
+        <div class="avatar" aria-label="Profile photo placeholder">YN</div>
+        <h1>Md. Nadim Hossain</h1>
+        <p class="role">Prospective PhD Applicant<br>Materials Science &amp; Engineering</p>
+      </div>
+      <div class="details">
+        <div class="detail"><span class="label">Current affiliation</span><strong>Rajshahi University of Engineering & Technology (RUET) / Institution</strong></div>
+        <div class="detail"><span class="label">Location</span><strong>Your City, Country</strong></div>
+        <div class="detail"><span class="label">Email</span><strong>2013051@student.ruet.ac.bd</strong></div>
+        <div class="detail"><span class="label">Research direction</span><strong>Materials &amp; Energy Research</strong></div>
+        <div class="pill"><span class="dot"></span> PhD opportunities · Edit your intake year</div>
+      </div>
+    </aside>
 
-    <h2>Research Interests</h2>
-    <p>Materials Science and Engineering</p>
+    <main class="main" id="content">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="eyebrow">International PhD Applicant · Academic Portfolio</div>
+        <h2 id="hero-heading">Curiosity-driven research.<br>Purposeful scientific questions.</h2>
+        <p>Welcome to my academic profile. This page brings together my education, research interests, project work and scholarly activities. I am interested in exploring doctoral research opportunities in materials-related disciplines.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#research">Explore my research</a>
+          <a class="btn btn-outline" href="#contact">Get in touch</a>
+        </div>
+      </section>
 
-    <h2>Publications</h2>
-    <p>My publications will be listed here.</p>
+      <section id="about" class="block" aria-labelledby="about-heading">
+        <h2 id="about-heading">About Me</h2>
+        <p>I am <strong>Md. Nadim Hossain</strong>, an aspiring researcher interested in Materials Science and Engineering. My academic interests lie at the intersection of material properties, chemical processes and practical applications.</p>
+        <p><strong>Personalize this paragraph:</strong> Bachelor of Science (BSc.) in Materials Science & Engineering, Rajshahi University of Engineering and Technology (RUET), Fabrication and Investigation of Nitrogen-Phosphorus Co-Doped SnO2 Anodes for Enhanced Electro
+chemical Performance and Cycling Stability in Lithium-Ion Batteries, research methods and the specific questions you hope to investigate during a PhD. Only include experience you can substantiate.</p>
+      </section>
 
-    <h2>Contact</h2>
-    <p>Contact information coming soon.</p>
-  </section>
+      <section id="research" class="block" aria-labelledby="research-heading">
+        <h2 id="research-heading">Research Interests</h2>
+        <p>Example research areas are listed below. Keep only those that genuinely match your background and plans.</p>
+        <div class="taglist" aria-label="Research topic examples">
+          <span class="tag">Materials Science &amp; Engineering</span>
+          <span class="tag">Electrochemical Energy Storage</span>
+          <span class="tag">Functional Materials</span>
+          <span class="tag">Chemical Engineering</span>
+          <span class="tag">Materials Characterization</span>
+        </div>
+      </section>
+
+      <section id="education" class="block" aria-labelledby="education-heading">
+        <h2 id="education-heading">Education</h2>
+        <div class="entry">
+          <div class="date">YOUR START YEAR – YOUR END YEAR</div>
+          <h3>Your Degree (e.g., B.Sc. in Materials Science and Engineering)</h3>
+          <p>Rajshahi University of Engineering & Technology (RUET) · Your Country</p>
+          <p>Thesis: Fabrication and Investigation of Nitrogen Phosphorus Co-Doped SnO₂ Anodes for Enhanced Electrochemical Performance and Cycling Stability in Lithium-Ion Batteries, if applicable.</p>
+        </div>
+        <div class="entry">
+          <div class="date">OPTIONAL</div>
+          <h3>Previous Qualification</h3>
+          <p>Remove this item if it is not relevant to your academic profile.</p>
+        </div>
+      </section>
+
+      <section id="experience" class="block" aria-labelledby="experience-heading">
+        <h2 id="experience-heading">Research Experience</h2>
+        <div class="entry">
+          <div class="date">YEAR – YEAR</div>
+          <h3>Thesis / Research Project Title</h3>
+          <p>University / Research Group · Supervisor (optional)</p>
+          <p>Briefly explain the research question, your methods and your own contribution. Add measured findings only if you have verified results.</p>
+        </div>
+      </section>
+
+      <section id="publications" class="block" aria-labelledby="publications-heading">
+        <h2 id="publications-heading">Publications &amp; Presentations</h2>
+        <div class="notice">Add your verified journal articles, conference papers, posters or presentations here. If you do not yet have publications, keep this section as “Research Outputs” or remove it until you have something to list. Do not claim unpublished work is accepted or published.</div>
+      </section>
+
+      <section id="projects" class="block" aria-labelledby="projects-heading">
+        <h2 id="projects-heading">Selected Projects</h2>
+        <div class="projects">
+          <article class="project">
+            <h3>Project Title One</h3>
+            <p>Explain the problem, methods used and what you personally contributed. Replace this example with your real project.</p>
+          </article>
+          <article class="project">
+            <h3>Project Title Two</h3>
+            <p>Describe another relevant project, experiment, analysis or academic collaboration. Delete this card if unused.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="block" aria-labelledby="skills-heading">
+        <h2 id="skills-heading">Technical Skills</h2>
+        <p>Replace these example categories with methods and tools you have actually used.</p>
+        <div class="taglist">
+          <span class="tag">Experimental Techniques</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Scientific Writing</span>
+          <span class="tag">Research Methods</span>
+        </div>
+      </section>
+
+      <section id="contact" class="block" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact &amp; Academic Profiles</h2>
+        <p>I welcome academic conversations about related research topics and opportunities for future collaboration.</p>
+        <p><strong>Email:</strong> 2013051@student.ruet.ac.bd</p>
+        <p>Replace the placeholder above with your real professional email. Add verified LinkedIn, Google Scholar and ORCID links when you have them.</p>
+        <div class="contact">
+          <a href="https://github.com/mdnadimhossain20" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer class="footer">© <span id="year">2026</span> Md. Nadim Hossain · Built with GitHub Pages</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
