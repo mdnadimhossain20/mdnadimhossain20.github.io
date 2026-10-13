@@ -360,3 +360,80 @@ grid-template-columns:1fr;
 }
 
 }
+/* Contact Section */
+
+
+.contact-grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+
+}
+
+
+
+.contact-box{
+
+background:#f8fafc;
+padding:25px;
+border-radius:15px;
+border-left:5px solid #c9a227;
+transition:0.3s;
+
+}
+
+
+
+.contact-box:hover{
+
+transform:translateY(-5px);
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+.contact-box h3{
+
+color:#0b1f3a;
+
+}
+
+
+
+.contact-box a{
+
+color:#163a63;
+text-decoration:none;
+font-weight:bold;
+
+}
+
+
+
+.contact-box a:hover{
+
+color:#c9a227;
+
+}
+
+
+
+.card ul{
+
+line-height:2;
+
+}
+
+
+
+@media(max-width:900px){
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
