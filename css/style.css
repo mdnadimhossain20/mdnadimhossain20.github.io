@@ -360,3 +360,24 @@ grid-template-columns:1fr;
 }
 
 }
+.skill-box ul{
+
+padding-left:20px;
+text-align:left;
+
+}
+
+
+.skill-box li{
+
+margin-bottom:8px;
+line-height:1.5;
+
+}
+
+
+.skill-box li::marker{
+
+color:#c9a227;
+
+}
