@@ -367,17 +367,3 @@ text-align:left;
 
 }
 
-
-.skill-box li{
-
-margin-bottom:8px;
-line-height:1.5;
-
-}
-
-
-.skill-box li::marker{
-
-color:#c9a227;
-
-}
